@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-black text-[#fffef3] py-12">
       <div className="container mx-auto px-4 grid md:grid-cols-4 gap-8">
         <div className="col-span-1 md:col-span-2">
-          <h2 className="text-3xl font-black uppercase mb-4 text-[#cce023]">ElimuPath</h2>
+          <h2 className="text-3xl font-black mb-4 text-[#cce023]">ElimuPath</h2>
           <p className="max-w-md text-gray-300">
             Guiding Kenyan graduates to their dream careers with AI-powered course recommendations and scholarship opportunities.
           </p>
