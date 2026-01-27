@@ -47,16 +47,16 @@ export default function Home() {
           
           <div className="relative flex justify-center order-2">
              {/* Placeholder for the generated image with float animation */}
-             <div className="relative w-full aspect-square max-w-md bg-[#cce023] border-2 border-black rounded-full overflow-hidden flex items-center justify-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-float">
+             {/* <div className="relative w-full aspect-square max-w-md bg-[#cce023] border-2 border-black rounded-full overflow-hidden flex items-center justify-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-float"> */}
                 <Image 
-                  src="/hero_student_illustration.png" 
+                  src="/hero_student.png" 
                   alt="Student finding their path" 
                   width={500} 
                   height={500} 
-                  className="object-cover"
+                  className="object-cover animate-float"
                   priority
                 />
-             </div>
+             {/* </div> */}
           </div>
         </div>
       </section>
