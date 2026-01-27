@@ -9,9 +9,9 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-[#fffef3] border-b border-black">
+    <header className="fixed w-full top-0 z-50 bg-[#fffef3] ">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-black uppercase tracking-tighter">
+        <Link href="/" className="text-2xl font-black tracking-tighter">
           ElimuPath
         </Link>
 
