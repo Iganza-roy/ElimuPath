@@ -71,7 +71,7 @@ export default function Home() {
                     percentage="17%"
                     title="Students Who Did Not Apply"
                     description="42,868 eligible students missed out on placement."
-                    widthClass="w-[17%]"
+                    widthClass="w-[40%]"
                     colorClass="bg-[#ffdac1]" // Peach for warning/did not apply
                 />
                  <DataBar 
