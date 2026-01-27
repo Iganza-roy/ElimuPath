@@ -12,7 +12,7 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 border-b-2 border-black">
-        <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center ">
           <div className="text-left order-1">
             <h1 className="text-6xl md:text-8xl font-black mb-6 leading-[0.9] tracking-tight">
               Find Your <br/>
@@ -34,7 +34,7 @@ export default function Home() {
             </div>
             
             {/* Countdown aligned */}
-            <div className="flex justify-center md:justify-start">
+            {/* <div className="flex justify-center md:justify-start">
                <div className="p-6 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
                   <div className="flex items-center gap-2 mb-2 justify-center">
                      <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"/>
@@ -42,21 +42,18 @@ export default function Home() {
                   </div>
                   <CountdownTimer />
                </div>
-            </div>
+            </div> */}
           </div>
           
-          <div className="relative flex justify-center order-2">
-             {/* Placeholder for the generated image with float animation */}
-             {/* <div className="relative w-full aspect-square max-w-md bg-[#cce023] border-2 border-black rounded-full overflow-hidden flex items-center justify-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-float"> */}
-                <Image 
-                  src="/hero_student.png" 
-                  alt="Student finding their path" 
-                  width={500} 
-                  height={500} 
-                  className="object-cover animate-float"
-                  priority
-                />
-             {/* </div> */}
+          <div className="relative flex justify-center order-2 self-start">
+            <Image 
+              src="/hero_student.png" 
+              alt="Student finding their path" 
+              width={500} 
+              height={500} 
+              className="object-cover animate-float"
+              priority
+            />
           </div>
         </div>
       </section>
