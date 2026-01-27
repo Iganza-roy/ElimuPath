@@ -13,7 +13,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 border-b-2 border-black">
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-left">
+          <div className="text-left order-1">
             <h1 className="text-6xl md:text-8xl font-black mb-6 leading-[0.9] tracking-tight">
               Find Your <br/>
               Path to <br/>
@@ -24,7 +24,7 @@ export default function Home() {
               Confused by cluster points? Don't miss your chance. Get fast, AI-powered guidance to match your grades with the perfect course.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Link href="/recommendations" className="bg-[#cce023] text-black text-lg font-bold py-4 px-8 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2">
                 Get Recommendations <ArrowRight size={24} />
               </Link>
@@ -33,51 +33,62 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="mt-12 p-6 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
-               <div className="flex items-center gap-2 mb-2">
-                  <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"/>
-                  <span className="font-black uppercase text-sm">KUCCPS Countdown</span>
+            {/* Countdown aligned */}
+            <div className="flex justify-center md:justify-start">
+               <div className="p-6 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
+                  <div className="flex items-center gap-2 mb-2 justify-center">
+                     <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"/>
+                     <span className="font-black uppercase text-sm">KUCCPS Countdown</span>
+                  </div>
+                  <CountdownTimer />
                </div>
-               <CountdownTimer />
             </div>
           </div>
           
-          <div className="relative flex justify-center">
-             {/* Placeholder for the generated image - using a div for now if image not ready, creates a nice frame */}
-             {/* <div className="relative w-full aspect-square max-w-md bg-[#cce023] border-2 border-black rounded-full overflow-hidden flex items-center justify-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"> */}
+          <div className="relative flex justify-center order-2">
+             {/* Placeholder for the generated image with float animation */}
+             <div className="relative w-full aspect-square max-w-md bg-[#cce023] border-2 border-black rounded-full overflow-hidden flex items-center justify-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-float">
                 <Image 
-                  src="/hero_student.png" 
+                  src="/hero_student_illustration.png" 
                   alt="Student finding their path" 
                   width={500} 
                   height={500} 
                   className="object-cover"
                   priority
                 />
-             {/* </div> */}
+             </div>
           </div>
         </div>
       </section>
 
-      {/* Problem-Solution Section */}
+      {/* What the Data Tells Us Section (Data Bars) */}
       <section className="py-20 bg-white border-b-2 border-black">
         <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-                <h2 className="text-4xl font-black uppercase mb-12 text-center">Why ElimuPath?</h2>
-                
-                <div className="space-y-8">
-                    <ProblemSolution 
-                        problem="Overwhelmed by confusing cluster point calculations?"
-                        solution="Our AI engine instantly calculates your weighted points for every cluster."
-                    />
-                    <ProblemSolution 
-                        problem="Unsure which courses match your career interests?"
-                        solution="Get personalized course recommendations aligned with your passions and grades."
-                    />
-                    <ProblemSolution 
-                        problem="Limited access to professional career guidance?"
-                        solution="Free, 24/7 AI career counseling to answer natural language questions."
-                    />
-                </div>
+            <h2 className="text-4xl font-black uppercase mb-16 text-center">What the Data Tells Us</h2>
+            
+            <div className="max-w-5xl mx-auto space-y-8">
+                <DataBar 
+                    percentage="17%"
+                    title="Students Who Did Not Apply"
+                    description="42,868 eligible students missed out on placement."
+                    widthClass="w-[17%]"
+                    colorClass="bg-[#ffdac1]" // Peach for warning/did not apply
+                />
+                 <DataBar 
+                    percentage="80%"
+                    title="Students Successfully Placed"
+                    description="194,372 students secured degree or diploma spots."
+                    widthClass="w-[80%]"
+                    colorClass="bg-[#cce023]" // Lime for success
+                />
+                 <DataBar 
+                    percentage="83%"
+                    title="Students Who Applied"
+                    description="201,695 students took the initiative to apply."
+                    widthClass="w-[83%]"
+                    colorClass="bg-black text-[#fffef3]" // Black for applied (contrast)
+                    textContrast
+                />
             </div>
         </div>
       </section>
@@ -188,18 +199,20 @@ function FeatureCard({ icon, title, description, link, cta, color }: { icon: any
   );
 }
 
-function ProblemSolution({ problem, solution }: { problem: string, solution: string }) {
+function DataBar({ percentage, title, description, widthClass, colorClass, textContrast }: { percentage: string, title: string, description: string, widthClass: string, colorClass: string, textContrast?: boolean }) {
     return (
-        <div className="flex flex-col md:flex-row gap-6 p-6 border-2 border-black hover:bg-[#fffef3] transition-colors">
-            <div className="md:w-1/2 flex gap-4 items-start text-red-600">
-                <AlertCircle className="shrink-0 mt-1" size={28} />
-                <p className="text-lg font-bold italic">"{problem}"</p>
-            </div>
-            <div className="hidden md:block w-px bg-black opacity-20"></div>
-            <div className="md:w-1/2 flex gap-4 items-start text-green-700">
-                 <CheckCircle className="shrink-0 mt-1" size={28} />
-                 <p className="text-lg font-medium">{solution}</p>
-            </div>
+        <div className="flex items-center">
+             <div className={`h-full min-h-[140px] md:min-h-[120px] rounded-r-3xl p-6 md:p-8 flex flex-col justify-center border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${widthClass} ${colorClass} transition-all`}>
+                 <h3 className={`text-xl md:text-2xl font-black leading-tight mb-2 ${textContrast ? 'text-[#fffef3]' : 'text-black'}`}>
+                    {title}
+                 </h3>
+                 <p className={`text-sm md:text-base font-medium leading-normal ${textContrast ? 'text-gray-300' : 'text-gray-800'}`}>
+                    {description}
+                 </p>
+             </div>
+             <div className="pl-4 md:pl-6 text-5xl md:text-7xl font-black text-black">
+                {percentage}
+             </div>
         </div>
     )
 }
