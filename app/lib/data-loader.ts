@@ -47,16 +47,38 @@ export async function loadCutoffsData(): Promise<Record<string, CutoffEntry[]>> 
 export function inferCluster(courseName: string): number | null {
   const upper = courseName.toUpperCase();
   
-  if (upper.includes("LAW")) return 1; // Law
-  if (upper.includes("BUSINESS") || upper.includes("COMMERCE") || upper.includes("ECONOMICS") || upper.includes("ACCOUNTING")) return 2; // Business
-  if (upper.includes("ARTS") || upper.includes("SOCIAL")) return 3; // Arts
-  if (upper.includes("GEOSCIENCE") || upper.includes("METEOROLOGY")) return 4; // Geo
-  if (upper.includes("ENGINEERING") || upper.includes("TECHNOLOGY")) return 5; // Engineering (Specific engineering often overrides general tech)
-  if (upper.includes("ARCHITECT")) return 6; // Architecture (Check cluster list)
-  if (upper.includes("COMPUTER") || upper.includes("INFORMATION TECH") || upper.includes("SOFTWARE")) return 7; // Computing
-  if (upper.includes("MEDICINE") || upper.includes("NURSING") || upper.includes("SURGERY") || upper.includes("PHARMACY")) return 13; // Health
-  if (upper.includes("EDUCATION")) return 20; // Education (Usually cluster 20 or distributed)
+  // Cluster 1: Law
+  if (upper.includes("LAW")) return 1;
   
-  // ... Add more mappings as needed based on the 20 clusters
+  // Cluster 2: Business
+  if (upper.includes("BUSINESS") || upper.includes("COMMERCE") || upper.includes("ECONOMICS") || upper.includes("ACCOUNTING") || upper.includes("HOSPITALITY") || upper.includes("HOTEL")) return 2;
+  
+  // Cluster 3: Social Sciences, Arts
+  if (upper.includes("ARTS") || upper.includes("SOCIAL") || upper.includes("MEDIA") || upper.includes("DEVELOPMENT") || upper.includes("SOCIOLOGY")) return 3;
+  
+  // Cluster 4: Geosciences
+  if (upper.includes("GEOLOGY") || upper.includes("METEOROLOGY") || upper.includes("GEOSPATIAL")) return 4;
+  
+  // Cluster 5: Engineering (Explicit)
+  if (upper.includes("ENGINEERING") || (upper.includes("TECHNOLOGY") && !upper.includes("INFORMATION"))) return 5;
+  
+  // Cluster 7: Computing
+  if (upper.includes("COMPUTER") || upper.includes("INFORMATION TECH") || upper.includes("SOFTWARE") || upper.includes("IT")) return 7;
+  
+  // Cluster 9: General Science
+  if (upper.includes("BACHELOR OF SCIENCE") && !upper.includes("ENG") && !upper.includes("MED")) return 9; // Fallback for simple BSc?
+  
+  // Cluster 10: Actuarial
+  if (upper.includes("ACTUARIAL") || upper.includes("STATISTICS")) return 10;
+  
+  // Cluster 13: Health
+  if (upper.includes("MEDICINE") || upper.includes("NURSING") || upper.includes("SURGERY") || upper.includes("PHARMACY") || upper.includes("HEALTH") || upper.includes("DENTAL")) return 13;
+  
+  // Cluster 15: Agri
+  if (upper.includes("AGRICULTURE") || upper.includes("FOOD") || upper.includes("NUTRITION") || upper.includes("AGRIBUSINESS")) return 15;
+  
+  // Cluster 19: Education
+  if (upper.includes("EDUCATION")) return 19;
+  
   return null;
 }
