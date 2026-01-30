@@ -4,7 +4,8 @@ import { useState, useMemo } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { CLUSTERS } from "../lib/clusters";
-import { GRADE_POINTS, calculateClusterPoints, MOCK_COURSES, Course } from "../lib/kuccps";
+import { GRADE_POINTS, calculateClusterPoints, Course } from "../lib/kuccps";
+import { getRecommendations } from "../actions/recommendations";
 import { SimpleSelect } from "../components/ui-simple/Select";
 import { Loader2, Sparkles, MapPin, TrendingUp, AlertCircle, CheckCircle, Info, ChevronDown, ChevronUp } from "lucide-react";
 import { useAuth, SignInButton } from "@clerk/nextjs";
@@ -51,40 +52,22 @@ export default function RecommendationsPage() {
 
     setLoading(true);
     
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const gradesArray = requiredSubjects.map(s => subjectGrades[s]);
+      
+      // Call Server Action
+      const data = await getRecommendations(parseInt(clusterId), meanGrade, gradesArray);
 
-    // Logic
-    const gradesArray = requiredSubjects.map(s => subjectGrades[s]);
-    const clusterPoints = calculateClusterPoints(meanGrade, gradesArray);
-
-    // Filter Matches
-    // Strict Logic: studentPoints >= cutoff
-    let matches = MOCK_COURSES.filter(course => 
-      course.clusterId === parseInt(clusterId) && clusterPoints >= course.cutoff
-    );
-
-    // Prioritize Public, then Private
-    matches.sort((a, b) => {
-      // Sort by type priority (Public first)
-      if (a.category === "Public" && b.category !== "Public") return -1;
-      if (a.category !== "Public" && b.category === "Public") return 1;
-      // Then by how close the cutoff is (higher cutoff items that you qualify for are usually "better" matches in terms of utilizing your points, 
-      // but usually users want the "Safest" match? 
-      // User requirement: "Return only options where studentPoints >= cutoff."
-      // Let's sort by descending cutoff (closest matches to your score)
-      return b.cutoff - a.cutoff;
-    });
-
-    // Limit to 4
-    const topMatches = matches.slice(0, 4);
-
-    setResults({
-      points: clusterPoints,
-      matches: topMatches,
-    });
-
-    setLoading(false);
+      setResults({
+        points: data.points,
+        matches: data.matches,
+      });
+    } catch (error) {
+      console.error(error);
+      alert("Failed to fetch recommendations. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleAddToWishlist = (courseId: string) => {
