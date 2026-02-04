@@ -47,38 +47,65 @@ export async function loadCutoffsData(): Promise<Record<string, CutoffEntry[]>> 
 export function inferCluster(courseName: string): number | null {
   const upper = courseName.toUpperCase();
   
-  // Cluster 1: Law
+  // 1: Law
   if (upper.includes("LAW")) return 1;
   
-  // Cluster 2: Business
+  // 2: Business
   if (upper.includes("BUSINESS") || upper.includes("COMMERCE") || upper.includes("ECONOMICS") || upper.includes("ACCOUNTING") || upper.includes("HOSPITALITY") || upper.includes("HOTEL")) return 2;
   
-  // Cluster 3: Social Sciences, Arts
-  if (upper.includes("ARTS") || upper.includes("SOCIAL") || upper.includes("MEDIA") || upper.includes("DEVELOPMENT") || upper.includes("SOCIOLOGY")) return 3;
+  // 3: Social Sciences & Arts
+  if (upper.includes("ARTS") || upper.includes("SOCIAL") || upper.includes("MEDIA") || upper.includes("FILM") || upper.includes("GRAPHICS") || upper.includes("DEVELOPMENT") || upper.includes("SOCIOLOGY")) return 3;
   
-  // Cluster 4: Geosciences
-  if (upper.includes("GEOLOGY") || upper.includes("METEOROLOGY") || upper.includes("GEOSPATIAL")) return 4;
+  // 4: Geosciences
+  if (upper.includes("GEOLOGY") || upper.includes("METEOROLOGY") || upper.includes("GEOSPATIAL") || upper.includes("GEOGRAPHY")) return 4;
   
-  // Cluster 5: Engineering (Explicit)
-  if (upper.includes("ENGINEERING") || (upper.includes("TECHNOLOGY") && !upper.includes("INFORMATION"))) return 5;
+  // 5: Engineering
+  if (upper.includes("ENGINEERING") || (upper.includes("TECHNOLOGY") && !upper.includes("INFORMATION") && !upper.includes("DESIGN"))) return 5;
   
-  // Cluster 7: Computing
+  // 6: Architecture
+  if (upper.includes("ARCHITECT") || upper.includes("BUILDING") || upper.includes("CONSTRUCTION") || upper.includes("REAL ESTATE")) return 6;
+  
+  // 7: Computing
   if (upper.includes("COMPUTER") || upper.includes("INFORMATION TECH") || upper.includes("SOFTWARE") || upper.includes("IT")) return 7;
   
-  // Cluster 9: General Science
-  if (upper.includes("BACHELOR OF SCIENCE") && !upper.includes("ENG") && !upper.includes("MED")) return 9; // Fallback for simple BSc?
+  // 8: Agribusiness
+  if (upper.includes("AGRIBUSINESS")) return 8; // Prioritize over general agri
   
-  // Cluster 10: Actuarial
+  // 9: General Science
+  if (upper.includes("BACHELOR OF SCIENCE") && !upper.includes("ENG") && !upper.includes("MED") && !upper.includes("ACTUARIAL")) return 9;
+  
+  // 10: Actuarial & Math
   if (upper.includes("ACTUARIAL") || upper.includes("STATISTICS")) return 10;
   
-  // Cluster 13: Health
+  // 11: Design & Fashion
+  if (upper.includes("INTERIOR") || upper.includes("FASHION") || upper.includes("TEXTILE")) return 11;
+  
+  // 12: Sport Science
+  if (upper.includes("SPORT")) return 12;
+  
+  // 13: Health
   if (upper.includes("MEDICINE") || upper.includes("NURSING") || upper.includes("SURGERY") || upper.includes("PHARMACY") || upper.includes("HEALTH") || upper.includes("DENTAL")) return 13;
   
-  // Cluster 15: Agri
-  if (upper.includes("AGRICULTURE") || upper.includes("FOOD") || upper.includes("NUTRITION") || upper.includes("AGRIBUSINESS")) return 15;
+  // 14: History
+  if (upper.includes("HISTORY") || upper.includes("ARCHAEOLOGY")) return 14;
   
-  // Cluster 19: Education
+  // 15: Agriculture (General)
+  if (upper.includes("AGRICULTURE") || upper.includes("FOOD") || upper.includes("NUTRITION")) return 15;
+  
+  // 16: Geography (Actually overlaps with 4, need context. Usually 'Bachelor of Science (Geography)' is GeoSciences (4), 'Bachelor of Geography' maybe 16? Let's assume general Geo is 16 now unless Geoscience specific)
+  if (upper === "BACHELOR OF GEOGRAPHY" || upper.includes("GEOGRAPHY")) return 16;
+  
+  // 17: French/German
+  if (upper.includes("FRENCH") || upper.includes("GERMAN")) return 17;
+  
+  // 18: Music
+  if (upper.includes("MUSIC")) return 18;
+  
+  // 19: Education
   if (upper.includes("EDUCATION")) return 19;
   
+  // 20: Religious Studies
+  if (upper.includes("THEOLOGY") || upper.includes("ISLAMIC") || upper.includes("RELIGIOUS")) return 20;
+
   return null;
 }
