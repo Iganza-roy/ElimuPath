@@ -68,6 +68,6 @@ export async function getRecommendations(
 
   return {
     points,
-    matches: matches.slice(0, 20) // Limit to top 20
+    matches: matches.slice(0, 4) // Limit to top 4
   };
 }
