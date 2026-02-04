@@ -162,9 +162,9 @@ export default function GuidancePage() {
                     HELB, Government Scholarships, and Private funding are available. Don't let fees stop your dream.
                  </p>
               </div>
-              <button disabled className="mt-4 md:mt-0 px-6 py-3 bg-white border-2 border-black text-gray-400 font-bold cursor-not-allowed">
-                 Scholarships Page (Coming Soon)
-              </button>
+              <Link href="/scholarships" className="mt-4 md:mt-0 px-6 py-3 bg-white border-2 border-black text-black font-bold hover:bg-[#cce023] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] transition-all">
+                 View Scholarships
+              </Link>
            </div>
         </section>
         
