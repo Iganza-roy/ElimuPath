@@ -93,7 +93,7 @@ export default function RecommendationsPage() {
       
       <main className="flex-1 container mx-auto px-4 py-24">
         <div className="text-center mb-12">
-           <h1 className="text-4xl md:text-5xl font-black mb-4 uppercase">Find Your Recommendation</h1>
+           <h1 className="text-4xl md:text-5xl font-black mb-4">Find Your Recommendation</h1>
            <p className="max-w-xl mx-auto font-medium text-lg">
              Select your interest cluster and enter your grades. Our AI calculates your cluster points and finds your best university matches.
            </p>
