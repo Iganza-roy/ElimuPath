@@ -16,15 +16,17 @@ export default function Footer() {
           <ul className="space-y-2">
             <li><Link href="/" className="hover:text-[#cce023]">Home</Link></li>
             <li><Link href="/guidance" className="hover:text-[#cce023]">Guidance</Link></li>
+            <li><Link href="/recommendations" className="hover:text-[#cce023]">Recommendation</Link></li>
             <li><Link href="/scholarships" className="hover:text-[#cce023]">Scholarships</Link></li>
-            <li><Link href="/contact" className="hover:text-[#cce023]">Contact</Link></li>
           </ul>
         </div>
 
         <div>
           <h3 className="font-bold text-lg mb-4 text-[#ffdac1]">Resources</h3>
           <ul className="space-y-2">
-            <li><a href="https://students.kuccps.net/" target="_blank" rel="noopener" className="hover:text-[#cce023]">KUCCPS Portal</a></li>
+            <li><a href="https://students.kuccps.net/" target="_blank" rel="noopener" className="hover:text-[#cce023]">KUCCPS Placement Portal</a></li>
+            <li><a href="https://www.kuccps.net/" target="_blank" rel="noopener" className="hover:text-[#cce023]">KUCCPS Website</a></li>
+            <li><a href="https://www.education.go.ke/" target="_blank" rel="noopener" className="hover:text-[#cce023]">MOE Website</a></li>
             <li><a href="https://www.helb.co.ke/" target="_blank" rel="noopener" className="hover:text-[#cce023]">HELB</a></li>
           </ul>
         </div>
