@@ -7,8 +7,8 @@ import { CLUSTERS } from "../lib/clusters";
 import { GRADE_POINTS, calculateClusterPoints, Course } from "../lib/kuccps";
 import { getRecommendations } from "../actions/recommendations";
 import { SimpleSelect } from "../components/ui-simple/Select";
-import { Loader2, Sparkles, MapPin, TrendingUp, AlertCircle, CheckCircle, Info, ChevronDown, ChevronUp } from "lucide-react";
-import { useAuth, SignInButton } from "@clerk/nextjs";
+import { Loader2, Sparkles, MapPin, TrendingUp, AlertCircle, Info, ChevronDown, ChevronUp } from "lucide-react";
+import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 

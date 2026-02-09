@@ -81,6 +81,7 @@ export default function ScholarshipsPage() {
 }
 
 // Data Handling
+// Defining consistent types for scholarship and certification data to ensure type safety.
 type Scholarship = { name: string; host: string; link: string; };
 type Certification = { org: string; courses: string; };
 

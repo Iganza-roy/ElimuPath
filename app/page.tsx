@@ -1,9 +1,8 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import CountdownTimer from "./components/CountdownTimer";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, BookOpen, Compass, GraduationCap, CheckCircle, AlertCircle } from "lucide-react";
+import { ArrowRight, BookOpen, Compass, GraduationCap } from "lucide-react";
 
 export default function Home() {
   return (
@@ -33,16 +32,7 @@ export default function Home() {
               </Link>
             </div>
             
-            {/* Countdown aligned */}
-            {/* <div className="flex justify-center md:justify-start">
-               <div className="p-6 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block">
-                  <div className="flex items-center gap-2 mb-2 justify-center">
-                     <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"/>
-                     <span className="font-black uppercase text-sm">KUCCPS Countdown</span>
-                  </div>
-                  <CountdownTimer />
-               </div>
-            </div> */}
+
           </div>
           
           <div className="relative flex justify-center order-2 self-start">

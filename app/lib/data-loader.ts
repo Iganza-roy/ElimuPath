@@ -31,8 +31,7 @@ export async function loadCutoffsData(): Promise<Record<string, CutoffEntry[]>> 
 
   try {
     const data = await fs.readFile(CUTOFFS_PATH, 'utf-8');
-    // Handle BOM if present (though we fixed it in the script, fs.readFile doesn't strip BOM automatically unless encoded right, but JSON.parse might fail if not careful. utf-8 usually handles it if clean, but let's be safe).
-    // Actually JSON.parse handles BOM in some node versions, but better safe.
+    // Remove BOM if present to prevent JSON parse errors
     const cleanData = data.replace(/^\uFEFF/, '');
     cachedData = JSON.parse(cleanData);
     return cachedData!;
@@ -42,8 +41,11 @@ export async function loadCutoffsData(): Promise<Record<string, CutoffEntry[]>> 
   }
 }
 
-// Simple heuristic mapping for clusters
-// ideally this should be replaced by an AI classifier or official mapping
+/**
+ * Infers the cluster ID based on the course name using heuristic rules.
+ * @param courseName The full name of the degree/diploma program.
+ * @returns The estimated cluster ID (1-20) or null if no match found.
+ */
 export function inferCluster(courseName: string): number | null {
   const upper = courseName.toUpperCase();
   

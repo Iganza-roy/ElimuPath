@@ -3,7 +3,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Link from "next/link";
-import { GraduationCap, BookOpen, Compass, AlertTriangle, Lightbulb, ExternalLink, ArrowRight, CheckCircle, HelpCircle } from "lucide-react";
+import { GraduationCap, BookOpen, Compass, AlertTriangle, Lightbulb, ExternalLink, ArrowRight, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
 export default function GuidancePage() {

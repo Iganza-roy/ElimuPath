@@ -47,7 +47,7 @@ export default function AiChatbot() {
     setInputValue("");
     setIsTyping(true);
 
-    // Mock Rule-Based Logic
+    // Mock Rule-Based Logic (To be replaced with real AI backend)
     setTimeout(() => {
       const lowerInput = userMsg.text.toLowerCase();
       let responseText = "I'm not sure about that specific detail yet, but generally, it's best to check the official KUCCPS portal for the most up-to-date information.";
