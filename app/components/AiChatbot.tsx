@@ -93,6 +93,7 @@ export default function AiChatbot() {
   if (!isOpen) {
     return (
       <button
+        id="ai-chatbot-toggle"
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 bg-[#cce023] text-black border-2 border-black p-4 rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all z-50 flex items-center gap-2"
       >

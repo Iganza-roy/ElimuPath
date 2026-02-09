@@ -2,6 +2,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
+import AiChatbot from "./components/AiChatbot";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
           className={`${raleway.variable} antialiased font-sans`}
         >
           {children}
+          <AiChatbot />
         </body>
       </html>
     </ClerkProvider>

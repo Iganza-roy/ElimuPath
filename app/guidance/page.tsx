@@ -2,7 +2,6 @@
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import AiChatbot from "../components/AiChatbot";
 import Link from "next/link";
 import { GraduationCap, BookOpen, Compass, AlertTriangle, Lightbulb, ExternalLink, ArrowRight, CheckCircle, HelpCircle } from "lucide-react";
 import { useState } from "react";
@@ -146,7 +145,10 @@ export default function GuidancePage() {
             <h2 className="text-3xl font-black uppercase mb-4">Have Questions?</h2>
             <p className="mb-6 text-lg font-medium">Our AI assistant is here to explain terms, processes, and options 24/7.</p>
             <button 
-               onClick={() => document.querySelector<HTMLButtonElement>('div[class*="fixed bottom-6"] button')?.click()}
+               onClick={() => {
+                  const toggle = document.getElementById('ai-chatbot-toggle');
+                  if (toggle) toggle.click();
+               }}
                className="inline-flex items-center gap-2 bg-[#cce023] text-black px-8 py-3 font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
             >
                Open Chat Assistant <ArrowRight size={20} />
@@ -199,7 +201,6 @@ export default function GuidancePage() {
       </main>
 
       <Footer />
-      <AiChatbot />
     </div>
   );
 }
