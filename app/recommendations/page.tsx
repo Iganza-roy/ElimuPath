@@ -91,7 +91,7 @@ export default function RecommendationsPage() {
     <div className="min-h-screen flex flex-col bg-[#fffef3] text-black font-sans">
       <Header />
       
-      <main className="flex-1 container mx-auto px-4 py-24">
+      <main className="flex-1 container mx-auto px-4 py-24 animate-fade-in-up">
         <div className="text-center mb-12">
            <h1 className="text-4xl md:text-5xl font-black mb-4">Find Your Recommendation</h1>
            <p className="max-w-xl mx-auto font-medium text-lg">

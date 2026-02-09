@@ -11,7 +11,7 @@ export default function GuidancePage() {
     <div className="min-h-screen flex flex-col bg-[#fffef3] text-black font-sans">
       <Header />
       
-      <main className="flex-1 container mx-auto px-4 py-16 space-y-24">
+      <main className="flex-1 container mx-auto px-4 py-16 space-y-24 animate-fade-in-up">
         
         {/* 1. Orientation & Context */}
         <section className="text-center max-w-4xl mx-auto space-y-6">

@@ -9,7 +9,7 @@ export default function ScholarshipsPage() {
     <div className="min-h-screen flex flex-col bg-[#fffef3] text-black font-sans">
       <Header />
       
-      <main className="flex-1 container mx-auto px-4 py-16 space-y-16">
+      <main className="flex-1 container mx-auto px-4 py-16 space-y-16 animate-fade-in-up">
         
         {/* Title Section */}
         <section className="text-center max-w-4xl mx-auto space-y-6">

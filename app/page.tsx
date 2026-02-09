@@ -11,7 +11,7 @@ export default function Home() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 border-b-2 border-black">
+      <section className="pt-32 pb-16 px-4 border-b-2 border-black animate-fade-in-up">
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center ">
           <div className="text-left order-1">
             <h1 className="text-6xl md:text-8xl font-black mb-6 leading-[0.9] tracking-tight">
