@@ -170,11 +170,22 @@ export default function GuidancePage() {
         
         {/* 10. Trusted Resources */}
         <section>
-           <h2 className="text-xl font-black uppercase mb-6">Official Resources</h2>
-           <div className="flex flex-wrap gap-4">
-              <ResourceLink name="Students Portal (KUCCPS)" url="https://students.kuccps.net" />
-              <ResourceLink name="HELB Portal" url="https://studentportal.helb.co.ke" />
-              <ResourceLink name="Education Ministry" url="https://education.go.ke" />
+           <h2 className="text-xl font-black uppercase mb-6">Official Resources & Downloads</h2>
+           <div className="space-y-6">
+              <div className="flex flex-wrap gap-4">
+                 <ResourceLink name="KUCCPS Official Website" url="https://kuccps.net/" />
+                 <ResourceLink name="Students Portal (KUCCPS)" url="https://students.kuccps.net" />
+                 <ResourceLink name="HELB Portal" url="https://studentportal.helb.co.ke" />
+                 <ResourceLink name="Education Ministry" url="https://education.go.ke" />
+              </div>
+              
+              <div>
+                 <h3 className="text-lg font-bold mb-3 uppercase">Essential Downloads (2025/2026)</h3>
+                 <div className="flex flex-wrap gap-4">
+                    <ResourceLink name="Degree Programmes" url="/DEGREE_PROGRAMMES.pdf" />
+                    <ResourceLink name="Cluster Subjects" url="/DEGREE_CLUSTER_SUBJECTS.pdf" />
+                 </div>
+              </div>
            </div>
         </section>
         

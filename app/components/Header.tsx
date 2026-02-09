@@ -29,9 +29,7 @@ export default function Header() {
           <Link href="/scholarships" className="hover:underline decoration-2 underline-offset-4">
             Scholarships
           </Link>
-          <Link href="/links" className="hover:underline decoration-2 underline-offset-4">
-            Links
-          </Link>
+
           <SignedIn>
             <Link href="/reviews" className="hover:underline decoration-2 underline-offset-4">
               Reviews
@@ -73,7 +71,7 @@ export default function Header() {
           <Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
           <Link href="/guidance" onClick={() => setIsMenuOpen(false)}>Guidance</Link>
           <Link href="/scholarships" onClick={() => setIsMenuOpen(false)}>Scholarships</Link>
-          <Link href="/links" onClick={() => setIsMenuOpen(false)}>Links</Link>
+
           <SignedIn>
             <Link href="/reviews" onClick={() => setIsMenuOpen(false)}>Reviews</Link>
           </SignedIn>
