@@ -1,5 +1,5 @@
 import { ClerkProvider } from "@clerk/nextjs";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import AiChatbot from "./components/AiChatbot";
@@ -37,11 +37,6 @@ export const metadata: Metadata = {
     description: "Elimupath - Find Your Path to University. Get fast, AI-powered guidance to match your grades with the perfect course.",
     images: ["/Elimu_path_prev.jpg"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   robots: {
     index: true,
     follow: true,
@@ -54,6 +49,12 @@ export const metadata: Metadata = {
     },
   },
 };
+
+export const viewport: Viewport =  {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  };
 
 export default function RootLayout({
   children,
