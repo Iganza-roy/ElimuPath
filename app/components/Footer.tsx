@@ -3,7 +3,9 @@ import { ArrowRight, Linkedin, ExternalLink, AlertTriangle } from "lucide-react"
 
 export default function Footer() {
   return (
+    
     <footer className="bg-black text-[#fffef3] pt-20 pb-10 border-t-[10px] border-[#cce023]">
+      
       <div className="container mx-auto px-4">
         
         {/* Main Grid */}
@@ -53,13 +55,14 @@ export default function Footer() {
               <h4 className="font-black text-2xl mb-2 text-white">Stay Ahead of the Curve</h4>
               <p className="text-gray-400 mb-6">Get weekly updates on applications, scholarship deadlines, and career trends directly on your feed.</p>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7426612737658585088" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#006396] text-white font-bold py-3 px-6 transition-all"
               >
                 <Linkedin size={20} /> Subscribe on LinkedIn
               </a>
+              
            </div>
 
            {/* Disclaimer */}
