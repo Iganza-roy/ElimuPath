@@ -9,9 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@ai-sdk/google": "^3.0.14",
+    "@ai-sdk/google": "^3.0.29",
+    "@ai-sdk/react": "^3.0.88",
     "@clerk/nextjs": "^6.36.10",
-    "ai": "^6.0.53",
+    "ai": "^6.0.86",
     "clsx": "^2.1.1",
     "firebase-admin": "^13.6.0",
     "lucide-react": "^0.563.0",
