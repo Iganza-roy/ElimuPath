@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -39,11 +39,18 @@ export default function Header() {
 
         <div className="hidden md:flex items-center gap-4">
           <SignedOut>
-            <SignInButton mode="modal">
-              <button className="bg-[#cce023] hover:bg-[#b5c71e] text-black font-bold py-2 px-6 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-                Sign In
-              </button>
-            </SignInButton>
+            <div className="flex gap-4">
+              <Link href="/sign-in">
+                <button className="bg-[#fffef3] hover:bg-[#f6f6f6] text-black font-bold py-2 px-6 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+                  Sign In
+                </button>
+              </Link>
+              <Link href="/sign-up">
+                <button className="bg-[#cce023] hover:bg-[#b5c71e] text-black font-bold py-2 px-6 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+                  Sign Up
+                </button>
+              </Link>
+            </div>
           </SignedOut>
           <SignedIn>
             <UserButton 
@@ -69,6 +76,7 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden bg-[#fffef3] border-t border-black p-4 flex flex-col gap-4 font-bold">
           <Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+          <Link href="/recommendations" onClick={() => setIsMenuOpen(false)}>Recommendation</Link>
           <Link href="/guidance" onClick={() => setIsMenuOpen(false)}>Guidance</Link>
           <Link href="/scholarships" onClick={() => setIsMenuOpen(false)}>Scholarships</Link>
 
@@ -77,11 +85,18 @@ export default function Header() {
           </SignedIn>
           <div className="pt-4 border-t border-black/10">
             <SignedOut>
-              <SignInButton mode="modal">
-                <button className="w-full bg-[#cce023] text-black font-bold py-3 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  Sign In
-                </button>
-              </SignInButton>
+              <div className="flex flex-col gap-4">
+                <Link href="/sign-in" onClick={() => setIsMenuOpen(false)}>
+                  <button className="w-full bg-[#fffef3] text-black font-bold py-3 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    Sign In
+                  </button>
+                </Link>
+                <Link href="/sign-up" onClick={() => setIsMenuOpen(false)}>
+                  <button className="w-full bg-[#cce023] text-black font-bold py-3 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    Sign Up
+                  </button>
+                </Link>
+              </div>
             </SignedOut>
             <SignedIn>
               <div className="flex items-center gap-4">
