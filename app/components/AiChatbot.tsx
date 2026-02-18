@@ -9,7 +9,7 @@ export default function AiChatbot() {
   const [isMinimized, setIsMinimized] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { messages, append, isLoading } = useChat({
+  const { messages, sendMessage, isLoading } = useChat({
     api: "/api/chat",
     initialMessages: [
       {
@@ -29,7 +29,7 @@ export default function AiChatbot() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
-    append({ role: "user", content: input });
+    sendMessage({ text: input });
     setInput("");
   };
 

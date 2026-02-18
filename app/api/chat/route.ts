@@ -5,11 +5,12 @@ import { streamText } from 'ai';
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
-  const { messages } = await req.json();
+  try {
+    const { messages } = await req.json();
 
-  const result = streamText({
-    model: google('gemini-1.5-pro'),
-    system: `You are the ElimuPath Guidance Assistant, an AI designed to help Kenyan students navigate their education journey.
+    const result = streamText({
+      model: google('gemini-1.5-pro'),
+      system: `You are the ElimuPath Guidance Assistant, an AI designed to help Kenyan students navigate their education journey.
     
     Your primary roles are:
     1.  **Explain KUCCPS Processes:** Help students understand cluster points, cutoffs, and how placement works.
@@ -28,8 +29,12 @@ export async function POST(req: Request) {
     -   The user is on the ElimuPath website.
     -   They may be looking for course recommendations or scholarship information.
     `,
-    messages,
-  });
+      messages,
+    });
 
-  return result.toDataStreamResponse();
+    return result.toTextStreamResponse();
+  } catch (error) {
+    console.error('Error in chat API:', error);
+    return new Response('Internal Server Error', { status: 500 });
+  }
 }
