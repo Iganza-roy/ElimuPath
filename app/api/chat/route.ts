@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       messages: convertToModelMessages(messages),
     });
 
-    return result.toTextStreamResponse();
+    return result.toDataStreamResponse();
   } catch (error) {
     console.error('Error in chat API:', error);
     return new Response('Internal Server Error', { status: 500 });
