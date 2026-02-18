@@ -28,7 +28,7 @@ export default function Home() {
                 Get Recommendations <ArrowRight size={24} />
               </Link>
               <Link href="/guidance" className="bg-[#ffdac1] text-black text-lg font-bold py-4 px-8 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2">
-                Ask AI Guide
+                Get Guidance
               </Link>
             </div>
             

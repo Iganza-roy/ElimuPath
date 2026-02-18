@@ -41,13 +41,8 @@ export default function Header() {
           <SignedOut>
             <div className="flex gap-4">
               <Link href="/sign-in">
-                <button className="bg-[#fffef3] hover:bg-[#f6f6f6] text-black font-bold py-2 px-6 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-                  Sign In
-                </button>
-              </Link>
-              <Link href="/sign-up">
                 <button className="bg-[#cce023] hover:bg-[#b5c71e] text-black font-bold py-2 px-6 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-                  Sign Up
+                  Sign In
                 </button>
               </Link>
             </div>
