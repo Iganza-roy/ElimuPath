@@ -131,9 +131,10 @@ export default function AiChatbot() {
                       : 'bg-[#e5e7eb] rounded-tl-none rounded-tr-xl rounded-br-xl rounded-bl-xl'
                   }`}
                 >
-                  {msg.content || (msg as any).parts?.map((part: any, i: number) => 
-                    part.type === 'text' ? part.text : null
-                  )}
+                  {msg.content ||
+                    (msg as any).parts?.map((part: any, i: number) =>
+                      part.type === 'text' ? part.text : null,
+                    )}
                 </div>
               </div>
             ))}
