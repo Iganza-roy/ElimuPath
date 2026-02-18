@@ -18,7 +18,7 @@ export default function AiChatbot() {
   const [isMinimized, setIsMinimized] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { messages, sendMessage, status, isSubmitting } = useChat({
+  const { messages, sendMessage, status } = useChat({
     api: '/api/chat',
     initialMessages: [
       {
@@ -29,6 +29,8 @@ export default function AiChatbot() {
       },
     ],
   });
+
+  const isLoading = status === 'submitted' || status === 'streaming';
 
   const [input, setInput] = useState('');
 
@@ -129,7 +131,9 @@ export default function AiChatbot() {
                       : 'bg-[#e5e7eb] rounded-tl-none rounded-tr-xl rounded-br-xl rounded-bl-xl'
                   }`}
                 >
-                  {msg.content}
+                  {msg.content || (msg as any).parts?.map((part: any, i: number) => 
+                    part.type === 'text' ? part.text : null
+                  )}
                 </div>
               </div>
             ))}
@@ -159,10 +163,10 @@ export default function AiChatbot() {
               />
               <button
                 type='submit'
-                disabled={isSubmitting || !input.trim()}
+                disabled={isLoading || !input.trim()}
                 className='p-2 bg-[#cce023] border-2 border-black hover:translate-y-[-1px] active:translate-y-[1px] disabled:opacity-50'
               >
-                {isSubmitting ? (
+                {isLoading ? (
                   <Loader2 size={18} className='animate-spin' />
                 ) : (
                   <Send size={18} />
